@@ -1,0 +1,47 @@
+/* TripDetails.css */
+.trip-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .trip-details h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .trip-details p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .trip-details .trip-info {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .trip-details .trip-info p {
+    margin: 5px 0;
+  }
+  
+  .trip-details .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .trip-details .back-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,36 @@
+/* TripDashboard.css */
+.trip-dashboard {
+    padding: 20px;
+  }
+  
+  .trip-dashboard h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .trip-dashboard .trip-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .trip-dashboard .trip-item:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .trip-dashboard .trip-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .trip-dashboard .trip-item p {
+    margin: 5px 0;
+  }
+  
+  .trip-dashboard .trip-item p:first-child {
+    font-weight: bold;
+  }
+  

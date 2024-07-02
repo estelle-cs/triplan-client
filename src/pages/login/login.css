@@ -1,0 +1,52 @@
+/* Styles pour le formulaire de connexion avec un thème de voyage */
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Blanc pour la propreté et l'ouverture */
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    color: #007bff; /* Bleu clair pour évoquer le ciel et la mer */
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-container label {
+    margin-bottom: 5px;
+    color: #000; /* Noir pour les labels */
+  }
+  
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .login-container button {
+    padding: 10px 20px;
+    background-color: #f8d057; /* Jaune vif pour rappeler le soleil et l'énergie */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login-container button:hover {
+    background-color: #ffd700; /* Une teinte plus claire de jaune pour la mise en surbrillance */
+  }
+  
+  .error-message {
+    color: #dc3545; /* Rouge foncé pour les messages d'erreur */
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+  
