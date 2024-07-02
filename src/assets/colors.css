@@ -1,0 +1,14 @@
+:root {
+    --light: #e6f6f4;
+    --light-hover: #d9f2ef;
+    --light-active: #b0e4dd;
+    --normal: #00a991;
+    --normal-hover: #009883;
+    --normal-active: #008774;
+    --dark:#007f6d;
+    --dark-hover:#006557;
+    --dark-active:#004c41;
+    --darker:#003b33;
+    --even-darker:#072427;
+    --orange: #FF8329;
+}

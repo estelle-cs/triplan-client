@@ -1,0 +1,154 @@
+body,h1,h2 {
+    margin: 0;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+.h1-ondark, .h2-ondark{
+    color: white;
+}
+
+.h2-onlight {
+    color: var(--even-darker);
+    margin-bottom: 50px;
+}
+
+.h2-ondark {
+    margin-bottom: 30px;
+}
+
+.logo {
+    text-transform: uppercase;
+}
+
+.green-button {
+    margin: 0;
+    padding: 15px 20px;
+    border: 1px solid var(--even-darker);
+    border-radius: 12px;
+    background-color: var(--even-darker);
+    color: white;
+}
+
+.green-button:hover {
+    background-color: transparent;
+    color: var(--even-darker);
+}
+
+.orange-button {
+    color: white;
+    background-color: var(--orange);
+}
+
+.top-section {
+    background-image: url('../../assets/hero-banner-medium.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 60em;
+    padding: 0px 135px;
+}
+
+.div-title {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.highlight-text{
+    color: var(--orange);
+}
+
+.second-section {
+    margin: 0;
+    padding: 115px 135px;
+    background-color: var(--even-darker);
+}
+
+.div-destinations {
+    display: inline-flex;
+    gap: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.destination {
+    box-shadow: 7px 6px 13px #031314;
+    cursor: pointer;
+    height: 20em;
+    width: 15em;
+    background-size: cover; 
+    background-position: bottom; 
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.paris {
+    background-image: url('../../assets/paris.jpg');
+}
+
+.london{
+    background-image: url('../../assets/london.jpg');
+}
+
+.rome {
+    background-image: url('../../assets/rome.jpg');
+}
+
+.destination:hover {
+    transform: translateY(-10px); /* Soulève la div vers le haut */
+    box-shadow: 10px 11px 16px #031314; /* Accentue l'ombre lors du survol */
+}
+
+.destination-desc {
+    background-color: white;
+    padding: 19px 24px;
+    border-radius: 0px 0px 20px 20px;
+    text-transform: uppercase;
+    height: 20%;
+}
+
+.third-section {
+    padding: 115px 135px;
+}
+
+.ant-steps {
+    margin: 60px 0px;
+}
+
+.ant-steps-item-icon {
+    background-color: var(--orange) !important;
+    border: none;
+}
+
+.ant-steps-item-title {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 20px !important;
+    font-weight: 800;
+    color: var(--even-darker)!important;
+}
+
+.ant-steps-item-description {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 14px !important;
+}
+
+.div-display-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
