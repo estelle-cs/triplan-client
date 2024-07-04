@@ -43,6 +43,10 @@ body,h1,h2 {
     background-color: var(--orange);
 }
 
+.orange-button:hover {
+    background-color: var(--orange-hover);
+}
+
 .top-section {
     background-image: url('../../assets/hero-banner-medium.jpg');
     background-size: cover; 

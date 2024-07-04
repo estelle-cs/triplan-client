@@ -12,7 +12,7 @@ function Welcome() {
                 </div>
                 <div className="div-title">
                     <h1 className="h1-ondark title-l">Planifiez votre prochain voyage <span className="highlight-text">comme un pro</span> !</h1>
-                    <button className="orange-button body-l accent" onClick={() => window.location.href = '/signUp'}>Je m'inscris !</button>
+                    <button className="orange-button body-l accent" onClick={() => window.location.href = '/register'}>Je m'inscris</button>
                 </div>
             </section>
             <section className="second-section">
