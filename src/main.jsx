@@ -18,17 +18,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <Router>
       <Routes>
-          <Route path="/" element={<RouteGuard element= {<MainLayout />}/>}>
-              <Route index element={<Home />} />
-              <Route path="home" element={<Home />} />
-              <Route path="newTrip" element={<NewTrip />} />
-              <Route path="trip" element={<TripDetails />} />
-              <Route path="dashboard" element={<TripDashboard />} />
-              <Route path="*" element={<NoPage />} />
-          </Route>
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        <Route path="/" element={<RouteGuard element={<MainLayout />}/>}>
+          <Route index element={<RouteGuard element={<Home />} />} />
+          <Route path="home" element={<RouteGuard element={<Home />} />} />
+          <Route path="newTrip" element={<RouteGuard element={<NewTrip />} />} />
+          <Route path="trip" element={<RouteGuard element={<TripDetails />} />} />
+          <Route path="dashboard" element={<RouteGuard element={<TripDashboard />} />} />
+          <Route path="*" element={<RouteGuard element={<NoPage />} />} />
+        </Route>
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
 </React.StrictMode>,
