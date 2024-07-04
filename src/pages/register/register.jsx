@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.css';
+import './register.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +12,10 @@ export const setAuthToken = token => {
        delete axios.defaults.headers.common["Authorization"];
 }
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const handleEmailChange = (e) => {
@@ -27,6 +28,10 @@ const Login = () => {
     setErrors({ ...errors, password: '' });
   };
 
+  const handlePasswordChange2 = (e) => {
+    setPassword2(e.target.value);
+    setErrors({ ...errors, password: '' });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValidEmail(email)) {
@@ -37,17 +42,25 @@ const Login = () => {
       setErrors({ ...errors, password: 'Veuillez entrer votre mot de passe' });
       return;
     }
+    if (password !== password2) {
+      setErrors({ ...errors, password: 'Les mots de passe ne correspondent pas' });
+      return;
+    }
     const loginInfo = {email: email, password: password};
-    axios.post('http://localhost:3000/auth/login', loginInfo).then(response => {
-      const token  =  response.data.access_token;
-      localStorage.setItem("token", token);
-      setAuthToken(token);
-      window.location.href = '/dashboard'
+    axios.post('http://localhost:3000/auth/register', loginInfo).then(response => {
+      console.log(response)
+      if (response.status === 201) {
+        const token  =  response.data.access_token;
+        localStorage.setItem("token", token);
+        setAuthToken(token);
+        window.location.href = '/'
+      }
     })
     .catch(err => console.log(err));
 
     setEmail('');
     setPassword('');
+    setPassword2('');
     setErrors({ email: '', password: '' });
   };
 
@@ -58,7 +71,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Connexion</h2>
+      <h2>Inscription</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Adresse Email:</label>
@@ -82,13 +95,24 @@ const Login = () => {
           />
           {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
-        <button type="submit">Se connecter</button>
+        <div>
+          <label htmlFor="password">Confirmez votre mot de passe:</label>
+          <input
+            type="password"
+            id="password2"
+            value={password2}
+            onChange={handlePasswordChange2}
+            required
+          />
+          {errors.password && <span className="error-message">{errors.password}</span>}
+        </div>
+        <button type="submit">S'inscrire</button>
       </form>
       <div className="register-link">
-        <p>Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link></p>
+        <p>Déja un compte ? <Link to="/login">Connectez-vous</Link></p>
       </div>
     </div>
   )
 };
 
-export default Login;
+export default Register;
