@@ -21,6 +21,7 @@ body,h1,h2 {
 
 .logo {
     text-transform: uppercase;
+    color: white;
 }
 
 .green-button {
