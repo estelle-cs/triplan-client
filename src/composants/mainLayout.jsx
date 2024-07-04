@@ -121,7 +121,7 @@ function MainLayout() {
           <Layout style={{ marginLeft: 200, padding: "24px" }}>
             <Content
               style={{
-                padding: 24,
+                padding: 60,
                 margin: 0,
                 minHeight: 280,
                 background: colorBgContainer,
