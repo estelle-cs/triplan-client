@@ -39,8 +39,8 @@ function MainLayout() {
         {
           key: "4",
           label: <div onClick={() => {
-            localStorage.clear(); // Efface le localStorage
-            window.location.href = '/'; // Redirige l'utilisateur vers la page d'accueil
+            localStorage.clear();
+            window.location.href = '/';
           }}>
             Déconnexion
           </div>,

@@ -8,11 +8,11 @@ function Welcome() {
             <section className="top-section">
                 <div className="nav-bar">
                     <span className="title-s logo">Triplan</span>
-                    <button className="green-button body-m accent" onClick={() => window.location.href = '/login'}>Se connecter</button>
+                    <button className="green-button body-m accent" onClick={() => window.location.href = '/login'} style={{ cursor: 'pointer' }}>Se connecter</button>
                 </div>
                 <div className="div-title">
                     <h1 className="h1-ondark title-l">Planifiez votre prochain voyage <span className="highlight-text">comme un pro</span> !</h1>
-                    <button className="orange-button body-l accent" onClick={() => window.location.href = '/register'}>Je m'inscris</button>
+                    <button className="orange-button body-l accent" onClick={() => window.location.href = '/register'} style={{ cursor: 'pointer' }}>Je m'inscris</button>
                 </div>
             </section>
             <section className="second-section">
@@ -63,7 +63,7 @@ function Welcome() {
                     ]}
                 />
                 <div className="div-display-flex">
-                    <button className="green-button body-m accent" onClick={() => window.location.href = '/login'}>Préparer mon voyage</button>
+                    <button className="green-button body-m accent" onClick={() => window.location.href = '/login'} style={{ cursor: 'pointer' }}>Préparer mon voyage</button>
                 </div>
             </section>
         </section>
