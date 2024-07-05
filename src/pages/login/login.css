@@ -33,7 +33,7 @@
 
 .login-container .label-login {
   margin-bottom: 5px;
-  color: #000; /* Noir pour les labels */
+  color: #000;
 }
 
 .login-container input[type="email"],
