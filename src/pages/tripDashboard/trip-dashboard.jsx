@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './trip-dashboard.css';
+import {
+  SunOutlined
+} from "@ant-design/icons";
 
 function TripDashboard({ userId }) {
   const [trips, setTrips] = useState([]);
@@ -27,8 +30,8 @@ function TripDashboard({ userId }) {
   }, []);
 
   return (
-    <div className="trip-dashboard">
-      <h1>Trip Dashboard</h1>
+    <section>
+      <h1 className="title-s">Mon dashboard</h1>
       {loading ? (
         <p>Loading trips...</p>
       ) : (
@@ -38,14 +41,14 @@ function TripDashboard({ userId }) {
           ) : (
             trips.map(trip => (
               <div className="trip-item" key={trip.id} onClick={() => navigate('/trip', { state: { tripData: trip } })}>
-                <p><strong>Location:</strong> {trip.location}</p>
-                <p><strong>Dates:</strong> {formatDates(trip.start_date, trip.end_date)}</p>
+                <p className="body-l trip-destination"><SunOutlined />{trip.location}</p>
+                <p className="body-m"><strong>Dates:</strong> {formatDates(trip.start_date, trip.end_date)}</p>
               </div>
             ))
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
