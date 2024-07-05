@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    <Router>
       <Routes>
         <Route path="/" element={<RouteGuard element={<MainLayout />}/>}>
-          <Route index element={<RouteGuard element={<Home />} />} />
+          <Route index element={<RouteGuard element={<TripDashboard />} />} />
           <Route path="home" element={<RouteGuard element={<Home />} />} />
           <Route path="newTrip" element={<RouteGuard element={<NewTrip />} />} />
           <Route path="trip" element={<RouteGuard element={<TripDetails />} />} />

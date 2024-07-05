@@ -37,7 +37,7 @@ function TripDashboard({ userId }) {
       ) : (
         <div className="trip-list">
           {trips.length === 0 ? (
-            <p>No trips available.</p>
+            <p>Vous n'avez pas de trip en cours. </p>
           ) : (
             trips.map(trip => (
               <div className="trip-item" key={trip.id} onClick={() => navigate('/trip', { state: { tripData: trip } })}>
