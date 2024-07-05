@@ -9,8 +9,8 @@ import TripDetails from './pages/tripDetail/trip-details.jsx'
 import TripDashboard from './pages/tripDashboard/trip-dashboard.jsx'
 import NewTrip from './pages/newTrip/newTrip.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import RouteGuard from './component/auth/RouteGuard.jsx'
-import MainLayout from "./composants/mainLayout.jsx"
+import RouteGuard from './components/auth/RouteGuard.jsx'
+import MainLayout from "./components/mainLayout.jsx"
 import 'antd/dist/reset.css';
 import './main.css'
 
