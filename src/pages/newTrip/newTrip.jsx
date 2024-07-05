@@ -49,7 +49,7 @@ function App({ userId}) {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="input-group">
           <label className="body-m" htmlFor="startDate">
-            Start Date:
+            Date de début :
           </label>
           <input
             className="input"
@@ -61,7 +61,7 @@ function App({ userId}) {
         </div>
         <div className="input-group">
           <label className="body-m" htmlFor="endDate">
-            End Date:
+            Date de fin :
           </label>
           <input
             className="input"

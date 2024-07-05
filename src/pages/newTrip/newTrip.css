@@ -5,6 +5,7 @@
 .input-group {
   margin: 10px 0;
   display: inline-grid;
+  gap: 8px;
 }
 
 .input {
