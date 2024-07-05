@@ -9,7 +9,6 @@ const RouteGuard = ({ element }) => {
   if (token) {
     try {
       const decodedToken = jwtDecode(token);
-      //console.log('decodedToken:', decodedToken)
       userId = decodedToken.sub;
     } catch (error) { 
       console.error('Error decoding token:', error);

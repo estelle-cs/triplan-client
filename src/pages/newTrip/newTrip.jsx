@@ -22,10 +22,9 @@ function App({ userId}) {
           userId: userId,
         })
         .then((response) => {
-          console.log(response.data);
           navigate("/trip", { state: { tripData: response.data } });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 

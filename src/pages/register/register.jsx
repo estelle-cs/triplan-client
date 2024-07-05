@@ -53,7 +53,6 @@ const Register = () => {
     axios
       .post("http://localhost:3000/auth/register", loginInfo)
       .then((response) => {
-        console.log(response);
         if (response.status === 201) {
           const token = response.data.access_token;
           localStorage.setItem("token", token);
@@ -61,7 +60,7 @@ const Register = () => {
           window.location.href = "/";
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
     setEmail("");
     setPassword("");

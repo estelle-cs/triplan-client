@@ -72,6 +72,19 @@ function TripDetails({ userId }) {
       .catch((error) => console.error("Error updating trip:", error));
   };
 
+  const handleDeleteTrip = async (userId, tripId) => {
+    try {
+      const response = await axios.post('http://localhost:3000/trip/deleteTrip', { userId, id: tripId });
+      if (response.data == true) {
+        navigate("/dashboard");
+      } else {
+        console.error('Error deleting trip:', response.data);
+      }
+    } catch (error) {
+      console.error('Failed to delete trip', error);
+    }
+  };
+
   return (
     <section>
       <div className="trip-infos-div">
@@ -228,7 +241,7 @@ function TripDetails({ userId }) {
               >
                 Modifier le trip
               </Button>
-              <Button type="primary" danger icon={<DeleteOutlined />}>
+              <Button type="primary" danger icon={<DeleteOutlined />} onClick={() => handleDeleteTrip(userId, tripData.id)}>
                 Supprimer le trip
               </Button>
             </section>

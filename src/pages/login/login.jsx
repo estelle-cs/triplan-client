@@ -46,7 +46,7 @@ const Login = () => {
         setAuthToken(token);
         window.location.href = "/dashboard";
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
     setEmail("");
     setPassword("");
