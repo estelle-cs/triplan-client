@@ -3,13 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './trip-dashboard.css';
 
-function TripDashboard() {
+function TripDashboard({ userId }) {
   const [trips, setTrips] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/trip/getAllTrips')
+    axios.get('http://localhost:3000/trip/getAllTrips',
+      {
+        params: {
+          userId
+        }
+      }
+    )
       .then(response => {
         setTrips(response.data);
         setLoading(false);

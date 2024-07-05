@@ -38,7 +38,12 @@ function MainLayout() {
         { key: "3", label: <Link to="/profil">Profil</Link>, link: "/profil" },
         {
           key: "4",
-          label: <Link to="/logout">Déconnexion</Link>,
+          label: <div onClick={() => {
+            localStorage.clear(); // Efface le localStorage
+            window.location.href = '/'; // Redirige l'utilisateur vers la page d'accueil
+          }}>
+            Déconnexion
+          </div>,
           link: "/logout",
         },
       ],
