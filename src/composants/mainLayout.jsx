@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  LaptopOutlined,
+  SunOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme, ConfigProvider } from "antd";
@@ -15,7 +15,7 @@ function MainLayout() {
   const items = [
     {
       key: "sub1",
-      icon: <LaptopOutlined />,
+      icon: <SunOutlined />,
       label: "Mes trips",
       children: [
         {
