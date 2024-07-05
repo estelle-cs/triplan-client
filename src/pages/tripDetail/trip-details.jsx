@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './trip-details.css';
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./trip-details.css";
+import "../newTrip/newTrip.css";
+import { PlusOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Button, ConfigProvider } from "antd";
 
 function TripDetails({ userId }) {
   const location = useLocation();
@@ -10,24 +13,24 @@ function TripDetails({ userId }) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    id: tripData?.id || '',
-    location: tripData?.location || '',
-    start_date: tripData?.start_date || '',
-    end_date: tripData?.end_date || '',
-    transports: tripData?.transports || '',
-    hostings: tripData?.hostings || '',
-    activities: tripData?.activities || ''
+    id: tripData?.id || "",
+    location: tripData?.location || "",
+    start_date: tripData?.start_date || "",
+    end_date: tripData?.end_date || "",
+    transports: tripData?.transports || "",
+    hostings: tripData?.hostings || "",
+    activities: tripData?.activities || "",
   });
 
   useEffect(() => {
     if (tripData) {
       setFormData({
-        location: tripData.location || '',
-        start_date: tripData.start_date || '',
-        end_date: tripData.end_date || '',
-        transports: tripData.transports || '',
-        hostings: tripData.hostings || '',
-        activities: tripData.activities || ''
+        location: tripData.location || "",
+        start_date: tripData.start_date || "",
+        end_date: tripData.end_date || "",
+        transports: tripData.transports || "",
+        hostings: tripData.hostings || "",
+        activities: tripData.activities || "",
       });
     }
   }, [tripData]);
@@ -46,7 +49,7 @@ function TripDetails({ userId }) {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -56,97 +59,185 @@ function TripDetails({ userId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3000/trip/updateTrip`, {
-      userId: userId,
-      id: tripData.id,
-      formData
-    })
-      .then(response => {
-        setIsEditing(false);
-        navigate('/dashboard');
+    axios
+      .post(`http://localhost:3000/trip/updateTrip`, {
+        userId: userId,
+        id: tripData.id,
+        formData,
       })
-      .catch(error => console.error('Error updating trip:', error));
+      .then((response) => {
+        setIsEditing(false);
+        navigate("/dashboard");
+      })
+      .catch((error) => console.error("Error updating trip:", error));
   };
 
   return (
-    <div className="trip-details">
-      <h1>Trip Details</h1>
+    <section>
+      <div className="trip-infos-div">
+        <h1 className="title-s">Voyage à {tripData?.location}</h1>
+        <p className="title-subtitle trip-dates">
+          {formatDates(tripData.start_date, tripData.end_date)}
+        </p>
+      </div>
       {tripData ? (
         isEditing ? (
           <form className="trip-form" onSubmit={handleSubmit}>
-            <div>
-              <label>Location:</label>
-              <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-              />
+            <div className="input-container-edit">
+              <div className="input-group">
+                <label className="body-m">Destination </label>
+                <input
+                  type="text"
+                  name="location"
+                  className="input"
+                  value={formData.location}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group">
+                <label className="body-m">Date de début</label>
+                <input
+                  type="date"
+                  name="start_date"
+                  className="input"
+                  value={formData.start_date}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group">
+                <label className="body-m">Date de fin</label>
+                <input
+                  type="date"
+                  name="end_date"
+                  className="input"
+                  value={formData.end_date}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group">
+                <label className="body-m">Transports</label>
+                <input
+                  type="text"
+                  name="transports"
+                  className="input"
+                  value={formData.transports}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group">
+                <label className="body-m">Hébergements</label>
+                <input
+                  type="text"
+                  name="hostings"
+                  className="input"
+                  value={formData.hostings}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="input-group">
+                <label className="body-m">Activités</label>
+                <input
+                  type="text"
+                  name="activities"
+                  className="input"
+                  value={formData.activities}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="buttons-edit-div">
+                <button className="body-m submit-button" type="submit">
+                Modifier
+              </button>
+              <button className="body-m cancel-button" type="button" onClick={() => setIsEditing(false)}>
+                Annuler
+              </button>
+              </div>
+              
             </div>
-            <div>
-              <label>Start Date:</label>
-              <input
-                type="date"
-                name="start_date"
-                value={formData.start_date}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>End Date:</label>
-              <input
-                type="date"
-                name="end_date"
-                value={formData.end_date}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Transports:</label>
-              <input
-                type="text"
-                name="transports"
-                value={formData.transports}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Hostings:</label>
-              <input
-                type="text"
-                name="hostings"
-                value={formData.hostings}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Activities:</label>
-              <input
-                type="text"
-                name="activities"
-                value={formData.activities}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
           </form>
         ) : (
-          <div className="trip-info">
-            <p><strong>Trip to {tripData.location}</strong></p>
-            <p>{formatDates(tripData.start_date, tripData.end_date)}</p>
-            <p><strong>Transports:</strong> {tripData.transports}</p>
-            <p><strong>Hostings:</strong> {tripData.hostings}</p>
-            <p><strong>Activities:</strong> {tripData.activities}</p>
-            <button className="edit-button" onClick={handleEdit}>Edit</button>
-          </div>
+          <ConfigProvider
+            theme={{
+              components: {
+                Button: {
+                  defaultHoverBorderColor: "var(--dark)",
+                  defaultHoverColor: "var(--dark)",
+                },
+              },
+            }}
+          >
+            <section>
+              <div className="trip-info">
+                <p className="title-subtitle trip-detail-title">Transports</p>
+                <p>
+                  {tripData.transports ? (
+                    <span className="body-s">{tripData.transports}</span>
+                  ) : (
+                    <span className="no-data-message">
+                      Aucun moyen de transport ajouté
+                    </span>
+                  )}
+                </p>
+                <Button
+                  className="button-add"
+                  onClick={handleEdit}
+                  shape="circle"
+                  icon={<PlusOutlined />}
+                />
+              </div>
+              <div className="trip-info">
+                <p className="title-subtitle trip-detail-title">Hébergements</p>
+                <p>
+                  {tripData.hostings ? (
+                    <span className="body-s">{tripData.hostings}</span>
+                  ) : (
+                    <span className="no-data-message">
+                      Aucun hébergement ajouté
+                    </span>
+                  )}
+                </p>
+                <Button
+                  className="button-add"
+                  onClick={handleEdit}
+                  shape="circle"
+                  icon={<PlusOutlined />}
+                />
+              </div>
+              <div className="trip-info">
+                <p className="title-subtitle trip-detail-title">Activités</p>
+                <p>
+                  {tripData.activities ? (
+                    <span className="body-s">{tripData.activities}</span>
+                  ) : (
+                    <span className="no-data-message">
+                      Aucune activité ajoutée
+                    </span>
+                  )}
+                </p>
+                <Button
+                  className="button-add"
+                  onClick={handleEdit}
+                  shape="circle"
+                  icon={<PlusOutlined />}
+                />
+              </div>
+              <Button
+                className="button-edit"
+                onClick={handleEdit}
+                icon={<EditOutlined />}
+              >
+                Modifier le trip
+              </Button>
+              <Button type="primary" danger icon={<DeleteOutlined />}>
+                Supprimer le trip
+              </Button>
+            </section>
+          </ConfigProvider>
         )
       ) : (
-        <p>No trip data available.</p>
+        <p>Aucun trip disponible.</p>
       )}
-      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
-      <button className="back-button" onClick={() => navigate('/dashboard')}>To Dashboard</button>
-    </div>
+    </section>
   );
 }
 
